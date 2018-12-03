@@ -11,6 +11,9 @@ html {
 body {
 	width: 100%;
 	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 header {
@@ -20,7 +23,7 @@ header {
 
 main {
 	width: 100%;
-	height: 80%;
+	height: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -34,13 +37,14 @@ nav ul {
 
 form {
 	width: 95%;
-	height: 50%;
+	height: 20%;
 	background-color: red;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: center;
 	font-size: 2em;
-	margin-top: 0;
+	margin-top: 30%;
+	overflow: auto;
+	transition-duration: 2s;
 }
 
 form input {
@@ -49,21 +53,24 @@ form input {
 }
 
 #more {
-	width: 100%;
-	height: 80%;
-	display: flex;
+	width: 95%;
+	height: 0%;
+	position: absolute;
+	top: 20%;
+	display: none;
 	flex-wrap: wrap;
 	justify-content: center;
+	transition-duration: 2s;
 }
 
 #more input{
 	width: 25%;
 	margin: 2%;
-	height: 18%;
+	height: 15%;
 }
 
 #more select {
 	width: 25%;
 	margin: 2%;
-	height: 18%;
+	height: 15%;
 }
