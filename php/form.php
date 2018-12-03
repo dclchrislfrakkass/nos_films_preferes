@@ -12,7 +12,7 @@ echo '<input type="text" value="" name="rechercheScenariste" placeholder="Scenar
 echo '<input type="number" value="" name="duree" placeholder="duree" class="formInp">';
 echo '<input type="text" value="" name="utilisateur" placeholder="Utilisateur" class="formInp">';
 mySelect('pays', 3);
-echo '<input type="submit" value="recherchez" id="submit" class="formInp">';
+echo '<input type="submit" value="recherchez" id="submit">';
 echo '</div>';
 echo '</form>';
 

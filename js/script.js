@@ -2,6 +2,7 @@ var rechercheInput = document.getElementById('recherche');
 var rechercheDiv = document.getElementById('more');
 var recherche = document.getElementsByTagName('form');
 var rechercheSubmit = document.getElementById('submit');
+var trierButton = document.getElementById('trier');
 rechercheInput.style.height = "100%";
 
 rechercheInput.addEventListener('click', function(){
@@ -18,6 +19,7 @@ rechercheSubmit.addEventListener('click', function(){
 	rechercheDiv.style.height = '0%';
 	recherche[0].style.height = '5%';
 	rechercheInput.style.height = "100%";
+	trierButton.style.display = 'block';
 	setTimeout(function(){
 		rechercheDiv.style.height = '0%';
 		rechercheDiv.style.display = 'none';
