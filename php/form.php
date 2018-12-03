@@ -1,7 +1,7 @@
 <?php 
 
 echo '<form action="">';
-echo '<input type="text" value="" name="rechercheMotsCle" placeholder="Recherche">';
+echo '<input type="text" value="" name="rechercheMotsCle" placeholder="Recherche" id="recherche">';
 echo '<div id="more">';
 echo '<input type="text" value="" name="rechercheNom" placeholder="Nom du Film">';
 mySelect('genre', 5);

@@ -1,5 +1,68 @@
-ul {
+* {
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+}
+
+header {
+	width: 100%;
+	height: 20%;
+}
+
+main {
+	width: 100%;
+	height: 80%;
+	display: flex;
+	justify-content: center;
+}
+
+nav ul {
     text-align: center;
     list-style-type: none;
     display: inline;
+}
+
+form {
+	width: 95%;
+	height: 50%;
+	background-color: red;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	font-size: 2em;
+	margin-top: 50%;
+}
+
+form input {
+	width: 100%;
+	height: 20%;
+}
+
+#more {
+	width: 100%;
+	height: 80%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+#more input{
+	width: 25%;
+	margin: 2%;
+	height: 18%;
+}
+
+#more select {
+	width: 25%;
+	margin: 2%;
+	height: 18%;
 }
