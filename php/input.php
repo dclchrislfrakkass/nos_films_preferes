@@ -21,7 +21,7 @@ class input {
 
 	public function __set($property, $value)
 	{
-		if(property_exists(input, $property))
+		if(property_exists('input', $property))
 			$this->$property = $value;
 		else
 			throw new Exception("property invalid", 1);
@@ -29,7 +29,7 @@ class input {
 
 	public function __get($property)
 	{
-		if (property_exists(input, $property))
+		if (property_exists('input', $property))
 			return($this->input);
 		else
 			throw new Exception("property invalid", 1);

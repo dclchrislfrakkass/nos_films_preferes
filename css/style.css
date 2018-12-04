@@ -86,3 +86,29 @@ form input {
 	margin-top: 5%;
 	font-size: 2em;
 }
+
+.billetFilm {
+	width: 90%;
+	height: 25%;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.affiche {
+	width: 30%;
+	height: 100%;
+}
+
+.affiche img {
+	width: 100%;
+	height: auto;
+}
+
+.infos {
+	width: 70%;
+	height: auto;
+}
+
+#resumeFull {
+	display: none;
+}
