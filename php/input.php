@@ -5,15 +5,17 @@ class input {
 	private $inputName;
 	private $inputPlaceholder;
 	private $inputClass;
+	private $inputId;
 	private $input;
 
-	public function __construct($type, $value, $name, $placeholder, $classe)
+	public function __construct($type, $value, $name, $placeholder, $classe, $id)
 	{
 		$this->inputType = '<input type="'.$type.'" value="';
 		$this->inputValue = $value;
 		$this->inputName = '" name="'.$name.'" ';
 		$this->inputPlaceholder = 'placeholder="'.$placeholder.'" ';
-		$this->inputClass = 'class="'.$classe.'">';
+		$this->inputClass = 'class="'.$classe.'" ';
+		$this->inputId = 'id ="'.$id.'"">';
 		$this->input = '';
 	}
 
@@ -35,7 +37,7 @@ class input {
 
 	public function assemble()
 	{
-		$this->set('input', ''.$this->inputType.$this->inputValue.$this->inputName.$this->inputPlaceholder.$this->inputClass.'');
+		$this->input = ''.$this->inputType.$this->inputValue.$this->inputName.$this->inputPlaceholder.$this->inputClass.$this->inputId.'';
 	}
 }
 
