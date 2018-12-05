@@ -1,0 +1,5 @@
+load data local INFILE '/home/gen006/Bureau/csvfilms.csv'
+into table Film
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
