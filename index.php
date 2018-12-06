@@ -7,23 +7,26 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/button.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
     <main>
         <?php
+
         include 'php/form.php';
+
         ?>
-        <div class="gallerie">
+        <div class="gallery">
         <?php
-        include 'php/mini.php';
+            include 'php/mini.php';
+
         ?>
         </div>
     </main>
-
+<!--     
     <div class="pos-f-t">
     <div class="collapse" id="navbarToggleExternalContent">
     <div class="bg-dark p-4">
@@ -47,7 +50,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
         </nav>
-    </div>
+    </div> -->
 <footer>
 </footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

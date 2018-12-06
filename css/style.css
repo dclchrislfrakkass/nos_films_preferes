@@ -116,14 +116,10 @@ form input {
 	display: none;
 
 }
-.gallerie {
+/* .gallery {
 	display: flex;
 	flex-wrap: wrap;
-	max-width: 500px;
+	max-width: 200px;
 	column-count: 2;
 
-}
-.row{
-	max-width: 200px;
-	max-height: 200px;
-}
+} */
