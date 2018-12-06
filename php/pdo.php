@@ -1,5 +1,6 @@
 <?php
 
+include 'film.php';
 
 $bdd = new PDO('mysql:host=localhost;dbname=Films;charset=utf8', 'test', 'test00');
 
@@ -14,9 +15,9 @@ $aff = $affiche->fetch();
 echo '<img src='.$aff['afficheFilm'].'></br></br>';
 
 ///affiche les genres avec les ID
-while ($donnees = $genre->fetch()) {
-    echo $donnees['nomGenre'].' appartient à Id '.$donnees['idGenre'].'</br>';
-}
+// while ($donnees = $genre->fetch()) {
+//     echo $donnees['nomGenre'].' appartient à Id '.$donnees['idGenre'].'</br>';
+// }
 ?>
 
 
@@ -32,12 +33,56 @@ while ($donnees2 = $motCle->fetch()) {
 
 function getFilmFromAffiche($affiche, $bdd)
 {
+
+	$myquery = $bdd->query('SELECT * FROM Film WHERE afficheFilm LIKE "'.$affiche.'"');
+
+	$myquery = $myquery->fetch();
+	$nom = $myquery['nomFilm'];
+	$duree = $myquery['dureeFilm'];
+	$annee = $myquery['anneeFilm'];
+	$affiche = $myquery['afficheFilm'];
+	$resume = $myquery['resumeFilm'];
+	$bandeAnonce = $myquery['lienBandeAnnonce'];
+
+	$myquery = $bdd->query('SELECT * FROM Film LEFT JOIN realise ON Film.idFilm = realise.idFilm LEFT JOIN personne ON realise.idPersonne = personne.idPersonne WHERE afficheFilm LIKE "'.$affiche.'"');
+	$myquery = $myquery->fetch();
+	$realisateurNom = $myquery['nomPersonne'];
+	$realisateurPrenom = $myquery['prenomPersonne_personne'];
+
+	$myquery = $bdd->query('SELECT * FROM Film LEFT JOIN ecrit ON Film.idFilm = ecrit.idFilm LEFT JOIN personne ON ecrit.idPersonne = personne.idPersonne WHERE afficheFilm LIKE "'.$affiche.'"');
+	$myquery = $myquery->fetch();
+	$scenaristeNom = $myquery['nomPersonne'];
+	$scenaristePrenom = $myquery['prenomPersonne_personne'];
+
+	$myquery = $bdd->query('SELECT * FROM Film LEFT JOIN vient_de ON Film.idFilm = vient_de.idFilm LEFT JOIN Pays ON vient_de.idPays = Pays.idPays LEFT JOIN est ON Film.idFilm = est.idFilm LEFT JOIN genre ON est.idGenre = genre.idGenre WHERE afficheFilm LIKE "'.$affiche.'"');
+	$myquery = $myquery->fetch();
+	$genre = $myquery['nomGenre'];
+	$pays = $myquery['nomPays'];
+
 	$myquery = $bdd->query('SELECT * FROM Film LEFT JOIN joue ON Film.idFilm = joue.idFilm LEFT JOIN personne ON joue.idPersonne = personne.idPersonne WHERE afficheFilm LIKE "'.$affiche.'"');
-	while ($donnees3 = $myquery->fetch())
+	$acteur = array();
+	$i = 0;
+	while ($donnees = $myquery->fetch())
 	{
-		$film = $donnees3;
-		echo ''.$film['afficheFilm'].$film['nomFilm'].$film['anneeFilm'].$film['nomPersonne'].$film['prenomPersonne_personne'].'<br>';
+		$acteur[$i] = array($donnees['nomPersonne'] , $donnees['prenomPersonne_personne']);
+		$i++;
 	}
+
+	$myFilm = new film($nom, $duree, $annee, $affiche, $pays, $genre, $realisateurNom, $realisateurPrenom, $scenaristeNom, $scenaristePrenom, $acteur, $resume, $bandeAnonce);
+	var_dump($myFilm);
+	// var_dump($acteur);
+	// var_dump($nom);
+	// var_dump($duree);
+	// var_dump($annee);
+	// var_dump($affiche);
+	// var_dump($resume);
+	// var_dump($bandeAnonce);
+	// var_dump($realisateurNom);
+	// var_dump($realisateurPrenom);
+	// var_dump($scenaristeNom);
+	// var_dump($scenaristePrenom);
+	// var_dump($genre);
+	// var_dump($pays);
 }
 
 getFilmFromAffiche('http://fr.web.img2.acsta.net/r_1920_1080/medias/nmedia/18/72/34/14/19476654.jpg', $bdd);
@@ -45,52 +90,16 @@ getFilmFromAffiche('http://fr.web.img2.acsta.net/r_1920_1080/medias/nmedia/18/72
 
 
 
-<!-- 
-SELECT * FROM Film LEFT JOIN joue ON Film.idFilm = joue.idFilm LEFT JOIN personne ON joue.idPersonne = personne.idPersonne WHERE afficheFilm LIKE 'http://fr.web.img2.acsta.net/r_1920_1080/medias/nmedia/18/72/34/14/19476654.jpg' -->
 
+<!-- SELECT * FROM Film LEFT JOIN joue ON Film.idFilm = joue.idFilm LEFT JOIN personne ON joue.idPersonne = personne.idPersonne WHERE afficheFilm LIKE 'http://fr.web.img2.acsta.net/r_1920_1080/medias/nmedia/18/72/34/14/19476654.jpg'
 
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('1', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('2', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('3', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('4', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('5', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('6', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('7', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('8', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('9', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('10', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('11', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('12', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('13', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('14', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('15', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('16', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('17', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('18', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('19', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('20', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('21', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('22', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('23', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('24', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('25', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('26', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('27', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('28', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('29', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('30', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('31', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('32', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('33', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('34', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('35', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('36', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('37', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('38', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('39', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('40', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('41', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('42', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('43', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('44', '1')
-INSERT INTO `vient_de` (`idFilm`, `idPays`) VALUES ('45', '1')
+SELECT * FROM Film LEFT JOIN realise ON Film.idFilm = realise.idFilm LEFT JOIN personne ON realise.idPersonne = personne.idPersonne WHERE afficheFilm LIKE 'http://fr.web.img2.acsta.net/r_1920_1080/medias/nmedia/18/72/34/14/19476654.jpg'
+
+SELECT * FROM Film LEFT JOIN vient_de ON Film.idFilm = vient_de.idFilm LEFT JOIN Pays ON vient_de.idPays = Pays.idPays WHERE afficheFilm LIKE 'http://fr.web.img2.acsta.net/r_1920_1080/medias/nmedia/18/72/34/14/19476654.jpg'
+
+SELECT * FROM Film LEFT JOIN ecrit ON Film.idFilm = ecrit.idFilm LEFT JOIN personne ON ecrit.idPersonne = personne.idPersonne WHERE afficheFilm LIKE 'http://fr.web.img2.acsta.net/r_1920_1080/medias/nmedia/18/72/34/14/19476654.jpg'
+
+SELECT * FROM Film LEFT JOIN est ON Film.idFilm = est.idFilm LEFT JOIN genre ON est.idGenre = genre.idGenre WHERE afficheFilm LIKE 'http://fr.web.img2.acsta.net/r_1920_1080/medias/nmedia/18/72/34/14/19476654.jpg' 
+
+SELECT * FROM Film LEFT JOIN vient_de ON Film.idFilm = vient_de.idFilm LEFT JOIN Pays ON vient_de.idPays = Pays.idPays LEFT JOIN est ON Film.idFilm = est.idFilm LEFT JOIN genre ON est.idGenre = genre.idGenre WHERE afficheFilm LIKE 'http://fr.web.img2.acsta.net/r_1920_1080/medias/nmedia/18/72/34/14/19476654.jpg'
+-->

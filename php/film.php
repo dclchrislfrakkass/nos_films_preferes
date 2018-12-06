@@ -6,6 +6,7 @@ class film {
 	private $duree;
 	private $annee;
 	private $affiche;
+	private $bandeAnonce;
 	private $pays;
 	private $genre;
 	private $realisateurNom;
@@ -14,9 +15,8 @@ class film {
 	private $scenaristePrenom;
 	private $acteur;
 	private $resume;
-	private $billet;
 
-	public function __construct($nom, $duree, $annee, $affiche, $pays, $genre, $realisateurNom, $realisateurPrenom, $scenaristeNom, $scenaristePrenom, $acteur, $resume)
+	public function __construct($nom, $duree, $annee, $affiche, $pays, $genre, $realisateurNom, $realisateurPrenom, $scenaristeNom, $scenaristePrenom, $acteur, $resume, $bandeAnonce)
 	{
 		$this->nom = $nom;
 		$this->duree = $duree;
@@ -28,8 +28,9 @@ class film {
 		$this->scenaristeNom = $scenaristeNom;
 		$this->scenaristePrenom = $scenaristePrenom;
 		$this->acteur = $acteur;
-		$this->resumePlus = $resumePlus;
+		$this->resume = $resume;
 		$this->affiche = $affiche;
+		$this->bandeAnonce = $bandeAnonce;
 	}
 
 	public function __set($property, $value)
@@ -43,7 +44,7 @@ class film {
 	public function __get($property)
 	{
 		if (property_exists('film', $property))
-			return($this->billet);
+			return($this->$property);
 		else
 			throw new Exception("property invalid", 1);
 	}
