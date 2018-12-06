@@ -17,7 +17,13 @@
         <?php
         include 'php/form.php';
         ?>
+        <div class="gallerie">
+        <?php
+        include 'php/mini.php';
+        ?>
+        </div>
     </main>
+
     <div class="pos-f-t">
     <div class="collapse" id="navbarToggleExternalContent">
     <div class="bg-dark p-4">
