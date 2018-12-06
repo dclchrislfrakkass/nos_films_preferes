@@ -13,6 +13,7 @@ foreach ($row as $img) {
     // while ($aff = $affiche->fetch()) {
     echo '<div class="container">';
     echo '<img src='.$img['afficheFilm'].'>';
+    // echo '<img class="buttonPlus" src="../img/plus.svg" onclick="resumePlus();" />';
     echo '<button class="buttonPlus"></button>';
     echo '</div>';
 }
