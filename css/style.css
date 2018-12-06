@@ -45,6 +45,7 @@ form {
 	overflow: auto;
 	transition-duration: 0.05s;
 	border-radius: 15px;
+	box-shadow: 5px 5px 10px black;
 }
 
 form input {
@@ -52,6 +53,8 @@ form input {
 	padding-left: 1%;
 	transition-duration: 0.05s;
 	border-radius: 15px;
+	border: none;
+	box-shadow: 5px 5px 10px black;
 }
 
 #more {

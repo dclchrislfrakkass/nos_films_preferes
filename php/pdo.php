@@ -1,7 +1,7 @@
 <?php
 
 
-$bdd = new PDO('mysql:host=localhost;dbname=Films;charset=utf8', 'dclchris', 'db10');
+$bdd = new PDO('mysql:host=localhost;dbname=Films;charset=utf8', 'test', 'test00');
 
 $genre = $bdd->query('SELECT * FROM `genre`');
 $motCle = $bdd->query('SELECT * FROM `motCle`');
@@ -9,7 +9,8 @@ $affiche = $bdd->query('SELECT * FROM `Film`');
 
 ///affiche une affiche
 $aff = $affiche->fetch();
-
+$aff = $affiche->fetch();
+$aff = $affiche->fetch();
 echo '<img src='.$aff['afficheFilm'].'></br></br>';
 
 ///affiche les genres avec les ID
@@ -26,7 +27,7 @@ while ($donnees = $genre->fetch()) {
 
 ///affiche les mots clés
 while ($donnees2 = $motCle->fetch()) {
-    echo $donnees2['motMotCle'].'</br>';
+    echo '<a href="#">'.$donnees2['motMotCle'].'</a>'.'</br>';
 }
 ?>
 

@@ -52,7 +52,7 @@ class formulaire {
 
 	function updateInput($property, $value)
 	{
-		if(property_exists(formulaire, $property))
+		if(property_exists('formulaire', $property))
 			$this->$property->set('inputValue', $value);
 	}
 
