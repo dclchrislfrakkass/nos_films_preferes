@@ -1,39 +1,12 @@
 <?php
 
 include 'film.php';
+include 'billet.php';
 
 $bdd = new PDO('mysql:host=localhost;dbname=Films;charset=utf8', 'test', 'test00');
 
-$genre = $bdd->query('SELECT * FROM `genre`');
-$motCle = $bdd->query('SELECT * FROM `motCle`');
-$affiche = $bdd->query('SELECT * FROM `Film`');
-
-///affiche une affiche
-$aff = $affiche->fetch();
-$aff = $affiche->fetch();
-$aff = $affiche->fetch();
-echo '<img src='.$aff['afficheFilm'].'></br></br>';
-
-///affiche les genres avec les ID
-// while ($donnees = $genre->fetch()) {
-//     echo $donnees['nomGenre'].' appartient à Id '.$donnees['idGenre'].'</br>';
-// }
-?>
-
-
-<br> mots clés :
-<br><br>
-<?php
-
-
-///affiche les mots clés
-while ($donnees2 = $motCle->fetch()) {
-    echo '<a href="#">'.$donnees2['motMotCle'].'</a>'.'</br>';
-}
-
 function getFilmFromAffiche($affiche, $bdd)
 {
-
 	$myquery = $bdd->query('SELECT * FROM Film WHERE afficheFilm LIKE "'.$affiche.'"');
 
 	$myquery = $myquery->fetch();
@@ -42,7 +15,7 @@ function getFilmFromAffiche($affiche, $bdd)
 	$annee = $myquery['anneeFilm'];
 	$affiche = $myquery['afficheFilm'];
 	$resume = $myquery['resumeFilm'];
-	$bandeAnonce = $myquery['lienBandeAnnonce'];
+	$bandeAnnonce = $myquery['lienBandeAnnonce'];
 
 	$myquery = $bdd->query('SELECT * FROM Film LEFT JOIN realise ON Film.idFilm = realise.idFilm LEFT JOIN personne ON realise.idPersonne = personne.idPersonne WHERE afficheFilm LIKE "'.$affiche.'"');
 	$myquery = $myquery->fetch();
@@ -68,24 +41,16 @@ function getFilmFromAffiche($affiche, $bdd)
 		$i++;
 	}
 
-	$myFilm = new film($nom, $duree, $annee, $affiche, $pays, $genre, $realisateurNom, $realisateurPrenom, $scenaristeNom, $scenaristePrenom, $acteur, $resume, $bandeAnonce);
+	$myFilm = new film($nom, $duree, $annee, $affiche, $pays, $genre, $realisateurNom, $realisateurPrenom, $scenaristeNom, $scenaristePrenom, $acteur, $resume, $bandeAnnonce);
 	var_dump($myFilm);
-	// var_dump($acteur);
-	// var_dump($nom);
-	// var_dump($duree);
-	// var_dump($annee);
-	// var_dump($affiche);
-	// var_dump($resume);
-	// var_dump($bandeAnonce);
-	// var_dump($realisateurNom);
-	// var_dump($realisateurPrenom);
-	// var_dump($scenaristeNom);
-	// var_dump($scenaristePrenom);
-	// var_dump($genre);
-	// var_dump($pays);
+	return $myFilm;
 }
 
-getFilmFromAffiche('http://fr.web.img2.acsta.net/r_1920_1080/medias/nmedia/18/72/34/14/19476654.jpg', $bdd);
+$film = getFilmFromAffiche('http://fr.web.img6.acsta.net/medias/nmedia/18/65/13/27/18899329.jpg', $bdd);
+
+$billet = new billets($film->nom, $film->duree, $film->annee, $film->affiche, $film->pays, $film->genre, $film->realisateurNom, $film->realisateurPrenom, $film->scenaristeNom, $film->scenaristePrenom, $film->acteur, $film->resume, $film->bandeAnnonce);
+$billet->assemble();
+echo $billet->billet;
 ?>
 
 
