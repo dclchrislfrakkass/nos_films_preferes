@@ -1,6 +1,7 @@
 * {
 	padding: 0;
 	margin: 0;
+	font-family: 'Roboto', sans-serif;
 }
 
 html {
@@ -29,9 +30,9 @@ main {
 }
 
 nav ul {
-    text-align: center;
-    list-style-type: none;
-    display: inline;
+	text-align: center;
+	list-style-type: none;
+	display: inline;
 }
 
 form {
@@ -115,12 +116,38 @@ form input {
 
 #resumeFull {
 	display: none;
-
+	
+	
 }
-/* .gallery {
+.container {
+	position: relative;
+	width:26vmax;
+	height: 37vmax;
+	padding: 0;
+	margin: 0;
+	
+}
+.container img {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	
+}
+.buttonPlus {
+	position: absolute;
+	bottom: 10%;
+	right: 10%;
+	width:         20px;
+	height:        20px;
+	z-index: 2;
+	background-image: url('../img/plus.svg')
+}
+main .gallery{
 	display: flex;
+	flex-direction: row;
 	flex-wrap: wrap;
-	max-width: 200px;
-	column-count: 2;
-
-} */
+	width: 100%;
+	
+	
+}

@@ -25,3 +25,4 @@ rechercheSubmit.addEventListener('click', function(){
 		rechercheDiv.style.display = 'none';
 	},500);
 });
+

@@ -11,9 +11,12 @@ $row = $affiche->fetchAll();
 
 foreach ($row as $img) {
     // while ($aff = $affiche->fetch()) {
-    echo '<img class="col-6 col-lg-3 no-padding" src='.$img['afficheFilm'].'>';
+    echo '<div class="container">';
+    echo '<img src='.$img['afficheFilm'].'>';
+    echo '<button class="buttonPlus"></button>';
+    echo '</div>';
 }
 
-        ?>
-        
-        
+    ?>
+    
+    
