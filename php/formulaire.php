@@ -22,7 +22,7 @@ class formulaire {
 
 	public function __construct()
 	{
-		$this->formDeb = '<form action="#">';
+		$this->formDeb = '<form action="php/recherche.php" method="get">';
 		$this->motCle = new input('text', '', 'rechercheMotsCles', 'Recherche', 'recherche', 'recherche');
 		$this->divDeb = '<div id="more">';
 		$this->nom = new input('text', '', 'rechercheNom', 'Nom du Film', 'formInp', 'rechercheNom');
