@@ -1,6 +1,7 @@
 <?php
 
 include 'input.php';
+include 'select.php';
 
 class formulaire {
 
@@ -20,20 +21,20 @@ class formulaire {
 	private $formFin;
 	private $divFin;
 
-	public function __construct()
+	public function __construct($selectGenre, $selectPays, $selectAnnee)
 	{
 		$this->formDeb = '<form action="php/recherche.php" method="get">';
 		$this->motCle = new input('text', '', 'rechercheMotsCles', 'Recherche', 'recherche', 'recherche');
 		$this->divDeb = '<div id="more">';
 		$this->nom = new input('text', '', 'rechercheNom', 'Nom du Film', 'formInp', 'rechercheNom');
-		$this->genre = '<select name="genre" class="formInp"></select>';
-		$this->annee = '<select name="annee" class="formInp"></select>';
+		$this->genre = new select('genre', $selectGenre);
+		$this->annee = new select('annee', $selectAnnee);
 		$this->realisateur = new input('text', '', 'rechercheRealisateur', 'Realisateur', 'formInp', 'rechercheRealisateur');
 		$this->acteur = new input('text', '', 'rechercheActeur', 'Acteur', 'formInp', 'rechercheActeur');
 		$this->scenariste = new input('text', '', 'rechercheScenariste', 'Scenariste', 'formInp', 'rechercheScenariste');
 		$this->duree = new input('number', '', 'rechercheDuree', 'Duree', 'formInp', 'rechercheDuree');
 		$this->utilisateur = new input('text', '', 'rechercheUtilisateur', 'Utilisateur', 'formInp', 'rechercheUtilisateur');
-		$this->pays = '<select name="pays" class="formInp"></select>';
+		$this->pays = new select('pays', $selectPays);
 		$this->submit = '<input type="submit" value="recherchez" id="submit">';
 		$this->divFin = '</div>';
 		$this->formFin = '</form>';
@@ -55,7 +56,7 @@ class formulaire {
 			throw new Exception("property invalid", 1);
 	}
 
-	function initInput()
+	function initForm()
 	{
 		$this->motCle->assemble();
 		$this->nom->assemble();
@@ -64,6 +65,9 @@ class formulaire {
 		$this->scenariste->assemble();
 		$this->duree->assemble();
 		$this->utilisateur->assemble();
+		$this->genre->createSelect();
+		$this->annee->createSelect();
+		$this->pays->createSelect();
 	}
 
 	function updateInput($property, $value)
@@ -78,14 +82,14 @@ class formulaire {
 		echo $this->motCle->input;
 		echo $this->divDeb;
 		echo $this->nom->input;
-		echo $this->genre;
-		echo $this->annee;
+		echo $this->genre->select;
+		echo $this->annee->select;
 		echo $this->realisateur->input;
 		echo $this->acteur->input;
 		echo $this->scenariste->input;
 		echo $this->duree->input;
 		echo $this->utilisateur->input;
-		echo $this->pays;
+		echo $this->pays->select;
 		echo $this->submit;
 		echo $this->divFin;
 		echo $this->formFin;

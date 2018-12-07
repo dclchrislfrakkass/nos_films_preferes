@@ -3,12 +3,20 @@
 
 include 'formulaire.php';
 include 'billet.php';
+include 'fonctionUtiles.php';
 
-$form;
 
-$form = new formulaire();
+$bdd = new PDO('mysql:host=localhost;dbname=Films;charset=utf8', 'test', 'test00');
 
-$form->initInput();
+$selectGenre = array();
+$selectAnnee = array();
+$selectPays = array();
+$selectGenre = arrayPush($selectGenre, $bdd->query('SELECT nomGenre FROM genre'));
+$selectAnnee = arrayPush($selectAnnee, $bdd->query('SELECT DISTINCT anneeFilm FROM Film'));
+$selectPays = arrayPush($selectPays, $bdd->query('SELECT DISTINCT nomPays FROM Pays'));
+
+$form = new formulaire($selectGenre, $selectPays, $selectAnnee);
+$form->initForm();
 $form->echoFormulaire();
 
 echo '<select name="trier" id="trier">';
