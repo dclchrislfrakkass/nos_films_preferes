@@ -4,21 +4,21 @@ include 'input.php';
 
 class formulaire {
 
-	public $formDeb;
-	public $motCle;
-	public $divDeb;
-	public $nom;
-	public $genre;
-	public $annee;
-	public $realisateur;
-	public $acteur;
-	public $scenariste;
-	public $duree;
-	public $utilisateur;
-	public $pays;
-	public $submit;
-	public $formFin;
-	public $divFin;
+	private $formDeb;
+	private $motCle;
+	private $divDeb;
+	private $nom;
+	private $genre;
+	private $annee;
+	private $realisateur;
+	private $acteur;
+	private $scenariste;
+	private $duree;
+	private $utilisateur;
+	private $pays;
+	private $submit;
+	private $formFin;
+	private $divFin;
 
 	public function __construct()
 	{
@@ -37,6 +37,22 @@ class formulaire {
 		$this->submit = '<input type="submit" value="recherchez" id="submit">';
 		$this->divFin = '</div>';
 		$this->formFin = '</form>';
+	}
+
+	public function __set($property, $value)
+	{
+		if(property_exists('formulaire', $property))
+			$this->$property = $value;
+		else
+			throw new Exception("property invalid", 1);
+	}
+
+	public function __get($property)
+	{
+		if (property_exists('formulaire', $property))
+			return($this->$property);
+		else
+			throw new Exception("property invalid", 1);
 	}
 
 	function initInput()

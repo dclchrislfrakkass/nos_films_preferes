@@ -9,15 +9,15 @@ $myquery = 'SELECT * FROM Film WHERE ';
 // 	$myquery .= 'nomFilm LIKE "'.$_GET['rechercheNom'].'"';
 // 	$myquery .= 'AND ';
 // }
-// if($_GET['rechercheNom'] != '')
-// {
-// 	$myquery .= 'nomFilm LIKE "'.$_GET['rechercheNom'].'"';
-// 	$myquery .= 'AND ';
-// }
-if($_GET['rechercheRealisateur'] != '')
+if($_GET['rechercheNom'] != '')
 {
-	$myquery .= '"'.$_GET['rechercheRealisateur'].'" = (SELECT * FROM Film LEFT JOIN realise ON Film.idFilm = realise.idFilm LEFT JOIN personne ON realise.idPersonne = personne.idPersonne WHERE nomPersonne LIKE "'.$_GET['rechercheRealisateur'].'") AND 1 = 1';
+	$myquery .= 'nomFilm LIKE "'.$_GET['rechercheNom'].'"';
+	$myquery .= 'AND 1 = 1';
 }
+// if($_GET['rechercheRealisateur'] != '')
+// {
+// 	$myquery .= '"'.$_GET['rechercheRealisateur'].'" = (SELECT * FROM Film LEFT JOIN realise ON Film.idFilm = realise.idFilm LEFT JOIN personne ON realise.idPersonne = personne.idPersonne WHERE nomPersonne LIKE "'.$_GET['rechercheRealisateur'].'") AND 1 = 1';
+// }
 // if($_GET['rechercheActeur'] != '')
 // {
 // 	$myquery .= 'nomFilm LIKE "'.$_GET['rechercheNom'].'"';
