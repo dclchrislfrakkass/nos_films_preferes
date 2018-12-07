@@ -22,7 +22,8 @@
         <div class="gallery">
         <?php
             include 'php/mini1.php';
-            affiche->doDiv();
+            $affiche = new affiche();
+            $affiche->doDiv();
 
         ?>
         </div>

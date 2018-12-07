@@ -30,11 +30,10 @@ class affiche
 
     public function doDiv()
     {
-        echo 'test';
-        // $row = $affiche->fetchAll();
+        $row = $affiche->fetchAll();
 
-        // foreach ($row as $img) {
-        //     echo $this->container.$this->img.$this->button.$this->containerEnd;
-        // }
+        foreach ($row as $img) {
+            echo $this->container.$this->img.$this->button.$this->containerEnd;
+        }
     }
 }
