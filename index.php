@@ -19,7 +19,6 @@
 
         include 'php/form.php';
         ?>
-        </div>
     </main>
 <!--     
     <div class="pos-f-t">

@@ -33,7 +33,7 @@ httpRequest.onreadystatechange = function (argument) {
 	if (httpRequest.readyState === 4)
 		document.getElementById('gallery').innerHTML = httpRequest.responseText;
 }
-httpRequest.open('GET', './php/recherche.php?annee='+years.value+'', true);
+httpRequest.open('GET', '../php/recherche.php?annee='+years.value+'', true);
 httpRequest.send();
 });
 
