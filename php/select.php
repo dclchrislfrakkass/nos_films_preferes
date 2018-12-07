@@ -11,7 +11,7 @@ class select {
 
 	public function __construct($name, $array)
 	{
-		$this->selectDeb = '<select name='.$name.'" class="formInp">';
+		$this->selectDeb = '<select name='.$name.'" id="'.$name.'" class="formInp">';
 		$this->selectName = '<option value="">'.$name.'</option>';
 		$this->array = $array;
 		$this->selectFin = '</select>';

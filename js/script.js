@@ -26,3 +26,13 @@ rechercheSubmit.addEventListener('click', function(){
 	},500);
 });
 
+var years = document.getElementById('annee');
+years.addEventListener("change", function(){
+var httpRequest = new XMLHttpRequest();
+httpRequest.onreadystatechange = function (argument) {
+	if (httpRequest.readyState === 4)
+		document.getElementById('annee').innerHTML = httpRequest.responseText;
+}
+httpRequest.open('GET', './php/recherche.php?annee='+years.value+'', true);
+httpRequest.send();
+});
