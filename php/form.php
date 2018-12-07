@@ -11,8 +11,8 @@ $bdd = new PDO('mysql:host=localhost;dbname=Films;charset=utf8', 'test', 'test00
 $selectGenre = array();
 $selectAnnee = array();
 $selectPays = array();
-$selectGenre = arrayPush($selectGenre, $bdd->query('SELECT nomGenre FROM genre'));
-$selectAnnee = arrayPush($selectAnnee, $bdd->query('SELECT DISTINCT anneeFilm FROM Film'));
+$selectGenre = arrayPush($selectGenre, $bdd->query('SELECT nomGenre FROM genre ORDER BY nomGenre'));
+$selectAnnee = arrayPush($selectAnnee, $bdd->query('SELECT DISTINCT anneeFilm FROM Film ORDER BY anneeFilm DESC'));
 $selectPays = arrayPush($selectPays, $bdd->query('SELECT DISTINCT nomPays FROM Pays'));
 
 $form = new formulaire($selectGenre, $selectPays, $selectAnnee);
