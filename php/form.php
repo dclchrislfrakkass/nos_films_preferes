@@ -30,3 +30,12 @@ echo '<option value="anneeA">annee 19xx-20xx</option>';
 echo '<option value="dureeA">duree 0-160</option>';
 echo '<option value="noteA">note 0-5</option>';
 echo '</select>';
+
+echo '<div id="gallery">';
+include 'php/mini1.php';
+$bdd = new PDO('mysql:host=localhost;dbname=Films;charset=utf8', 'test', 'test00');
+$selectAffiche = array();
+$selectAffiche = arrayPush($selectAffiche, $bdd->query('SELECT afficheFilm FROM Film'));
+$affiche = new affiche($selectAffiche);
+$affiche->doDiv();
+echo '</div>';

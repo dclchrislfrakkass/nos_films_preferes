@@ -1,5 +1,6 @@
 <?php
-var_dump($_GET);
+include 'fonctionUtiles.php';
+include 'mini1.php';
 $i = 0;
 $bdd = new PDO('mysql:host=localhost;dbname=Films;charset=utf8', 'test', 'test00');
 
@@ -38,8 +39,23 @@ $myquery = 'SELECT * FROM Film WHERE anneeFilm LIKE '.$_GET['annee'];
 // 	$myquery .= 'nomFilm LIKE "'.$_GET['rechercheNom'].'"';
 // 	$myquery .= 'AND ';
 // }
-var_dump($myquery);
-$recherche = $bdd->query(''.$myquery);
-$recherche = $recherche->fetch();
-var_dump($recherche);
+//var_dump($myquery);
+
+// $recherche = $bdd->query($myquery);
+// while($donneee = $recherche->fetch())
+// {
+// 	var_dump($donneee);
+// }
+
+
+$recherche = array();
+$recherche = arrayPush($recherche, $bdd->query('SELECT afficheFilm FROM Film WHERE anneeFilm LIKE "'.$_GET['annee'].'"'));
+$mySearch = new affiche($recherche);
+$mySearch->doDiv();
+$recherche = array();
+$recherche = arrayPush($recherche, $bdd->query('SELECT afficheFilm FROM Film JOIN est ON Film.idFilm = est.idFilm JOIN genre ON est.idGenre = genre.idGenre WHERE nomGenre LIKE "'.$_GET['genre'].'"'));
+$mySearch = new affiche($recherche);
+$mySearch->doDiv();
+//$recherche = $recherche->fetch();
+//$recherche = $recherche->fetch();
 ?>
