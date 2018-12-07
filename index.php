@@ -18,11 +18,11 @@
         <?php
 
         include 'php/form.php';
-
         ?>
         <div class="gallery">
         <?php
-            include 'php/mini.php';
+            include 'php/mini1.php';
+            affiche->doDiv();
 
         ?>
         </div>

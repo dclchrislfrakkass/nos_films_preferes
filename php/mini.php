@@ -20,4 +20,3 @@ foreach ($row as $img) {
 
     ?>
     
-    
