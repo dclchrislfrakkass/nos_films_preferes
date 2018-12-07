@@ -19,7 +19,7 @@
 
         include 'php/form.php';
         ?>
-        <div class="gallery">
+        <div id="gallery">
         <?php
             include 'php/mini1.php';
 

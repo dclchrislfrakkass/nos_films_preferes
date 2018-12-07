@@ -1,4 +1,5 @@
 <?php
+
 var_dump($_GET);
 $i = 0;
 $bdd = new PDO('mysql:host=localhost;dbname=Films;charset=utf8', 'test', 'test00');
@@ -38,8 +39,7 @@ $myquery = 'SELECT * FROM Film WHERE anneeFilm LIKE '.$_GET['annee'];
 // 	$myquery .= 'nomFilm LIKE "'.$_GET['rechercheNom'].'"';
 // 	$myquery .= 'AND ';
 // }
-var_dump($myquery);
+//var_dump($myquery);
 $recherche = $bdd->query(''.$myquery);
 $recherche = $recherche->fetch();
 var_dump($recherche);
-?>
