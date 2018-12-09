@@ -1,10 +1,13 @@
 <?php
 
+//include des fichiers php requis pour certaines fonctions de ce fichier.
 include 'input.php';
 include 'select.php';
 
+//creation du modèle de l'objet formulaire.
 class formulaire {
 
+//multiple déclarations de variable(attributs) de mon objets.
 	private $formDeb;
 	private $motCle;
 	private $divDeb;
@@ -21,8 +24,10 @@ class formulaire {
 	private $formFin;
 	private $divFin;
 
+//fonction utiliser automatiquement lors de la creation d'un nouvel objet(les paramettres de construct doivent être passé à la fonction lors de l'instantiation de l'objet).
 	public function __construct($selectGenre, $selectPays, $selectAnnee)
 	{
+//assignation de valeur aux attributs correspondants. multiples utilisation d'objet input et d'objet select (input.php et select.php).
 		$this->formDeb = '<form action="php/recherche.php" method="get">';
 		$this->motCle = new input('text', '', 'rechercheMotsCles', 'Recherche', 'recherche', 'recherche');
 		$this->divDeb = '<div id="more">';
@@ -40,6 +45,7 @@ class formulaire {
 		$this->formFin = '</form>';
 	}
 
+//fonction qui permet d'attribuer une valeur à un attribut de l'objet (les attributs sont privés donc sans celle-ci les valeurs ne peuvent être changées).
 	public function __set($property, $value)
 	{
 		if(property_exists('formulaire', $property))
@@ -47,7 +53,7 @@ class formulaire {
 		else
 			throw new Exception("property invalid", 1);
 	}
-
+//fonction qui permet d'obtenir la valeur d'un attribut de l'objet (les attributs sont privés donc sans celle-ci les valeurs ne peuvent être vue).
 	public function __get($property)
 	{
 		if (property_exists('formulaire', $property))
@@ -55,7 +61,7 @@ class formulaire {
 		else
 			throw new Exception("property invalid", 1);
 	}
-
+//fonction d'initalisation d'un formulaire avec l'appel à la fonction assemble des objets input et à la fonction createSelect de mes select.
 	function initForm()
 	{
 		$this->motCle->assemble();
@@ -75,7 +81,7 @@ class formulaire {
 		if(property_exists('formulaire', $property))
 			$this->$property->set('inputValue', $value);
 	}
-
+//affichage des attributs de mon form dans le html.
 	function echoFormulaire()
 	{
 		echo $this->formDeb;
