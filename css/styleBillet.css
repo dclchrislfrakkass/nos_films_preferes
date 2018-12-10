@@ -19,10 +19,13 @@ main {
 .billetFilm img {
     width: 50%;
 }
-.close {
+.modal-footer {
+    border-top: 0 none;
+}
+/* .close {
     color: white;
 }
 
 .billetFilm {
-  
-}
+
+} */

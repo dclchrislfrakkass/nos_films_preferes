@@ -25,6 +25,7 @@ class billets
 
     public function __construct($nom, $duree, $annee, $affiche, $pays, $genre, $realisateurNom, $realisateurPrenom, $scenaristeNom, $scenaristePrenom, $acteur, $resume, $bandeAnnonce)
     {
+        $this->divDeb = '<div class="modal" tabindex="-1" role="dialog">'.'<div class="modal-dialog" role="document">'.'<div class="modal-content">'.'<div class="modal-header">'.'<h5 class="modal-title">'.$nom.'</h5>'.'<button type="button" class="close" data-dismiss="modal" aria-label="Close">'.'<span aria-hidden="true">&times;</span>'.'</button>'.'</div>'.'<div class="modal-body">';
         $this->divDeb = '<div class="billetFilm">';
         $this->nom = '<div class="infos"><div class="topLeft">'.$nom.' (';
         $this->duree = $duree.'min, ';
@@ -39,10 +40,13 @@ class billets
         $this->acteur4 = '<a href="https://fr.wikipedia.org/wiki/'.$acteur[3][1].'_'.$acteur[3][0].'" target="blank">'.$acteur[3][1].'&nbsp'.$acteur[3][0].'</a>';
         $this->acteur5 = '<a href="https://fr.wikipedia.org/wiki/'.$acteur[4][1].'_'.$acteur[4][0].'" target="blank">'.$acteur[4][1].'&nbsp'.$acteur[4][0].'</a>';
         $this->resume = '<div id="resume"><p>Synopsie</p>'.$resume.'</div></div>';
-        $this->affiche = '<div id="affiche"><img src="'.$affiche.'" alt="'.$affiche.'">';
+        $this->affiche = '<div id="affiche"><img src="'.$affiche.'" alt="'.$affiche.'">'.'</div>';
         $this->bandeAnnonce = '<video controls src="'.$bandeAnnonce.'"></video></div>';
-        $this->fermer = '<button type="button" class="close" aria-label="Close">'.'<span aria-hidden="true">&times;</span>'.'</button>';
-        $this->divFin = '</div>';
+        $this->divFin = '<div class="modal-footer">'.'<button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>'.'</div>'.'</div>'.'</div>'.'</div>';
+
+        //
+        // $this->fermer = '<button type="button" class="close" aria-label="Close"'.'<span aria-hidden="true">&times;</span>'.'</button>'.'<script src="./js/close.js"></script>';
+        // $this->divFin = '</div>';
     }
 
     public function __set($property, $value)

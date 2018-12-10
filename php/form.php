@@ -26,7 +26,6 @@ $form->initForm();
 //fonction d'affichage du formulaire dans l'html (formulaire.php).
 $form->echoFormulaire();
 
-
 //affichage du bouton trier en html.
 echo '<select name="trier" id="trier">';
 echo '<option value="">trier par</option>';

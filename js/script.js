@@ -5,6 +5,8 @@ var rechercheSubmit = document.getElementById('submit');
 var trierButton = document.getElementById('trier');
 rechercheInput.style.height = "100%";
 
+
+
 function test(){
 var gallery = document.getElementById('gallery');
 var moreInfos = gallery.getElementsByTagName('img');
@@ -68,3 +70,6 @@ httpRequest.onreadystatechange = function (argument) {
 httpRequest.open('GET', './php/recherche.php?genre='+gender.value+'', true);
 httpRequest.send();
 });
+
+
+
