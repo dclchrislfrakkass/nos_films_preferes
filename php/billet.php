@@ -25,11 +25,11 @@ class billets
 
     public function __construct($nom, $duree, $annee, $affiche, $pays, $genre, $realisateurNom, $realisateurPrenom, $scenaristeNom, $scenaristePrenom, $acteur, $resume, $bandeAnnonce)
     {
-        $this->divDeb = '<div class="modal" tabindex="-1" role="dialog">'.'<div class="modal-dialog" role="document">'.'<div class="modal-content">'.'<div class="modal-header">'.'<h5 class="modal-title">'.$nom.'</h5>'.'<button type="button" class="close" data-dismiss="modal" aria-label="Close">'.'<span aria-hidden="true">&times;</span>'.'</button>'.'</div>'.'<div class="modal-body">';
+        $this->divDeb = '<div class="modal" id="modal" tabindex="-1" role="dialog">'.'<div class="modal-dialog" role="document">'.'<div class="modal-content">'.'<div class="modal-header">'.'<button type="button" class="close" data-dismiss="modal" aria-label="Close">'.'<span aria-hidden="true">&times;</span>'.'</button>'.'</div>'.'<div class="modal-body">';
         $this->divDeb = '<div class="billetFilm">';
-        $this->nom = '<div class="infos"><div class="topLeft">'.$nom.' (';
+        $this->nom = '<div class="infos">'.$nom.' (';
         $this->duree = $duree.'min, ';
-        $this->annee = $annee.')</div>';
+        $this->annee = $annee.')';
         $this->pays = $pays;
         $this->genre = $genre;
         $this->realisateur = '<p>Realisateur :</p><a href="https://fr.wikipedia.org/wiki/'.$realisateurPrenom.'_'.$realisateurNom.'" target="blank">'.$realisateurPrenom.' '.$realisateurNom.'</a>';
