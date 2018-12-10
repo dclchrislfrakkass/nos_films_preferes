@@ -45,6 +45,7 @@ rechercheSubmit.addEventListener('click', function(){
 	},500);
 });
 
+
 var years = document.getElementById('annee');
 years.addEventListener("change", function(){
 var httpRequest = new XMLHttpRequest();
@@ -66,5 +67,10 @@ httpRequest.onreadystatechange = function (argument) {
 }
 httpRequest.open('GET', './php/recherche.php?genre='+gender.value+'', true);
 httpRequest.send();
+<<<<<<< Updated upstream
 console.log('coucou');
 });
+=======
+});
+
+>>>>>>> Stashed changes

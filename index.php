@@ -10,6 +10,7 @@
     crossorigin="anonymous">
     <link rel="stylesheet" href="css/button.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/styleBillet.css">
 </head>
 
 <body>
