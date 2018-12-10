@@ -67,10 +67,4 @@ httpRequest.onreadystatechange = function (argument) {
 }
 httpRequest.open('GET', './php/recherche.php?genre='+gender.value+'', true);
 httpRequest.send();
-<<<<<<< Updated upstream
-console.log('coucou');
 });
-=======
-});
-
->>>>>>> Stashed changes

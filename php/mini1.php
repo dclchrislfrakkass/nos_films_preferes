@@ -19,11 +19,11 @@ class affiche
 
     public function doDiv()
     {
+        echo '<script src="./js/script.js"></script>';
         foreach ($this->array as $key => $value) {
             echo $this->containerStart;
             echo '<img src="'.$value.'" onload="test()">';
             echo $this->containerEnd;
-            echo '<script src="./js/script.js"></script>';
         }
     }
 }
