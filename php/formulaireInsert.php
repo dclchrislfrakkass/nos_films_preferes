@@ -69,6 +69,8 @@ class insertFilm  {
 		$this->nom->assemble();
 		$this->duree->assemble();
 		$this->annee->assemble();
+		$this->pays->assemble();
+		$this->genre->assemble();
 		$this->realisateur->assemble();
 		$this->scenariste->assemble();
 		$this->acteur1->assemble();
@@ -86,6 +88,8 @@ class insertFilm  {
 		echo $this->formDeb;
 		echo $this->nom->input;
 		echo $this->duree->input;
+		echo $this->pays->input;
+		echo $this->genre->input;
 		echo $this->annee->input;
 		echo $this->realisateur->input;
 		echo $this->scenariste->input;
