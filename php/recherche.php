@@ -56,6 +56,7 @@ $recherche = array();
 $recherche = arrayPush($recherche, $bdd->query('SELECT afficheFilm FROM Film JOIN est ON Film.idFilm = est.idFilm JOIN genre ON est.idGenre = genre.idGenre WHERE nomGenre LIKE "'.$_GET['genre'].'"'));
 $mySearch = new affiche($recherche);
 $mySearch->doDiv();
+
 //$recherche = $recherche->fetch();
 //$recherche = $recherche->fetch();
 ?>

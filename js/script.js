@@ -3,12 +3,11 @@ var rechercheDiv = document.getElementById('more');
 var recherche = document.getElementsByTagName('form');
 var rechercheSubmit = document.getElementById('submit');
 var trierButton = document.getElementById('trier');
-var gallery = document.getElementById('gallery');
-var moreInfos = gallery.getElementsByTagName('img');
 rechercheInput.style.height = "100%";
 
-
-
+function test(){
+var gallery = document.getElementById('gallery');
+var moreInfos = gallery.getElementsByTagName('img');
 for (var inc = 0; inc < moreInfos.length; inc++) {
 	moreInfos[inc].addEventListener('click', function(img){
 		// console.log(img.target.src);
@@ -21,6 +20,9 @@ for (var inc = 0; inc < moreInfos.length; inc++) {
 		httpRequest.send();
 	});
 }
+}
+
+// test();
 
 rechercheInput.addEventListener('click', function(){
 	recherche[0].style.marginTop = '0%';
@@ -52,6 +54,7 @@ httpRequest.onreadystatechange = function (argument) {
 }
 httpRequest.open('GET', './php/recherche.php?annee='+years.value+'', true);
 httpRequest.send();
+console.log('coucou');
 });
 
 var gender = document.getElementById('genre');
@@ -63,4 +66,5 @@ httpRequest.onreadystatechange = function (argument) {
 }
 httpRequest.open('GET', './php/recherche.php?genre='+gender.value+'', true);
 httpRequest.send();
+console.log('coucou');
 });

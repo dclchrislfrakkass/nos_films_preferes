@@ -1,7 +1,6 @@
 <?php
 
 include 'film.php';
-include 'billet.php';
 
 $bdd = new PDO('mysql:host=localhost;dbname=Films;charset=utf8', 'test', 'test00');
 

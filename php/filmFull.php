@@ -1,6 +1,8 @@
 <?php
 
 include 'pdo.php';
+include 'billet.php';
+
 //utilisation de ma fonction déclarée ci-dessus (test en brut).
 $film = getFilmFromAffiche($_GET['affiche'], $bdd);
 
