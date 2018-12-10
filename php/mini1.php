@@ -24,7 +24,6 @@ class affiche
         foreach ($this->array as $key => $value) {
             echo '<div class="container">';
             echo '<img src="'.$value.'">';
-            echo '<button class="buttonPlus"></button>';
             echo '</div>';
         }
         // $row = $afficheP->fetchAll();

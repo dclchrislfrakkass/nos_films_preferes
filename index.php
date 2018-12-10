@@ -14,7 +14,7 @@
 
 <body>
 
-    <main>
+    <main id="main">
         <?php
 
         include 'php/form.php';

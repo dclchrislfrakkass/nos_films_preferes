@@ -3,7 +3,24 @@ var rechercheDiv = document.getElementById('more');
 var recherche = document.getElementsByTagName('form');
 var rechercheSubmit = document.getElementById('submit');
 var trierButton = document.getElementById('trier');
+var gallery = document.getElementById('gallery');
+var moreInfos = gallery.getElementsByTagName('img');
 rechercheInput.style.height = "100%";
+
+
+
+for (var inc = 0; inc < moreInfos.length; inc++) {
+	moreInfos[inc].addEventListener('click', function(img){
+		// console.log(img.target.src);
+		var httpRequest = new XMLHttpRequest();
+		httpRequest.onreadystatechange = function (argument) {
+			if (httpRequest.readyState === 4)
+				document.getElementById('main').innerHTML = httpRequest.responseText;
+		}
+		httpRequest.open('GET', './php/filmFull.php?affiche='+img.target.src+'', true);
+		httpRequest.send();
+	});
+}
 
 rechercheInput.addEventListener('click', function(){
 	recherche[0].style.marginTop = '0%';
@@ -33,7 +50,7 @@ httpRequest.onreadystatechange = function (argument) {
 	if (httpRequest.readyState === 4)
 		document.getElementById('gallery').innerHTML = httpRequest.responseText;
 }
-httpRequest.open('GET', '../php/recherche.php?annee='+years.value+'', true);
+httpRequest.open('GET', './php/recherche.php?annee='+years.value+'', true);
 httpRequest.send();
 });
 
