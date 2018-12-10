@@ -48,13 +48,6 @@ function getFilmFromAffiche($affiche, $bdd)
 	return $myFilm;
 }
 
-//utilisation de ma fonction déclarée ci-dessus (test en brut).
-// $film = getFilmFromAffiche('http://fr.web.img6.acsta.net/medias/nmedia/18/65/13/27/18899329.jpg', $bdd);
-
-//creation d'un objet billet qui utilise les attributs du film créer ci-dessus pour afficher en html les infos du film.
-// $billet = new billets($film->nom, $film->duree, $film->annee, $film->affiche, $film->pays, $film->genre, $film->realisateurNom, $film->realisateurPrenom, $film->scenaristeNom, $film->scenaristePrenom, $film->acteur, $film->resume, $film->bandeAnnonce);
-// $billet->assemble();
-// echo $billet->billet;
 ?>
 
 

@@ -62,7 +62,7 @@ class formulaire {
 			throw new Exception("property invalid", 1);
 	}
 //fonction d'initalisation d'un formulaire avec l'appel à la fonction assemble des objets input et à la fonction createSelect de mes select.
-	function initForm()
+	public function initForm()
 	{
 		$this->motCle->assemble();
 		$this->nom->assemble();
@@ -76,13 +76,13 @@ class formulaire {
 		$this->pays->createSelect();
 	}
 
-	function updateInput($property, $value)
+	public function updateInput($property, $value)
 	{
 		if(property_exists('formulaire', $property))
 			$this->$property->set('inputValue', $value);
 	}
 //affichage des attributs de mon form dans le html.
-	function echoFormulaire()
+	public function echoFormulaire()
 	{
 		echo $this->formDeb;
 		echo $this->motCle->input;
