@@ -16,7 +16,7 @@
 <body>
     <main id="main">
         <?php
-
+        header('Access-Control-Allow-Origin: *');
         include 'php/form.php';
         ?>
         

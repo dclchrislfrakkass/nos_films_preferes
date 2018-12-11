@@ -98,8 +98,8 @@ form input {
 }
 
 .billetFilm {
-	width: 90%;
-	height: 25%;
+	width: 100%;
+	height: 5%;
 	display: flex;
 	flex-wrap: wrap;
 }
@@ -175,4 +175,33 @@ main {
 	vertical-align: bottom;
 	position: fixed;
 	left: 42%;
+}
+@media (min-width: 600px){
+
+#gallery {
+
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		width: 100%;	
+	
+
+}
+.container {	
+	position: relative;
+	width:25%;
+	height: 37vmax;
+	padding: 0;
+	margin: 0;	
+}
+.container img {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;	
+}
+
+
+
+
 }
