@@ -57,7 +57,6 @@ years.addEventListener("change", function(){
 	}
 	httpRequest.open('GET', './php/recherche.php?annee='+years.value+'', true);
 	httpRequest.send();
-	console.log('coucou');
 });
 
 var gender = document.getElementById('genre');
@@ -68,6 +67,17 @@ gender.addEventListener("change", function(){
 		document.getElementById('gallery').innerHTML = httpRequest.responseText;
 	}
 	httpRequest.open('GET', './php/recherche.php?genre='+gender.value+'', true);
+	httpRequest.send();
+});
+
+var country = document.getElementById('pays');
+country.addEventListener("change", function(){
+	var httpRequest = new XMLHttpRequest();
+	httpRequest.onreadystatechange = function (argument) {
+		if (httpRequest.readyState === 4)
+		document.getElementById('gallery').innerHTML = httpRequest.responseText;
+	}
+	httpRequest.open('GET', './php/recherche.php?pays='+country.value+'', true);
 	httpRequest.send();
 });
 
