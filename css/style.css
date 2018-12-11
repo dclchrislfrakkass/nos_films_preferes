@@ -194,11 +194,14 @@ main {
 		flex-wrap: wrap;
 	}
 	#affiche {
-		width: 50%;
+		max-width: 30%;
+
 	}
 	#affiche img{
-		width: 25%;
+		width: 90%;
 	}
-	
-	
+	.infos {
+		max-width: 50%;
+		height: auto;
+	}
 }

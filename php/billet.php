@@ -27,9 +27,9 @@ class billets
     {
         $this->divDeb = '<div class="modalFilm" id="modalFilm" tabindex="-1" role="dialog">'.'<div class="modal-dialog" role="document">'.'<div class="modal-content">'.'<div class="modal-header">'.'<button type="button" data-dismiss="modal" aria-label="Close">'.'<span aria-hidden="true">&times;</span>'.'</button>'.'</div>'.'<div class="modal-body">';
         $this->divDeb = '<div class="billetFilm">';
-        $this->nom = '<div class="infos"><h2>'.$nom.' </h2>(';
-        $this->duree = $duree.'min, ';
-        $this->annee = $annee.')';
+        $this->nom = '<div class="infos"><h2>'.$nom.' </h2><em>(';
+        $this->duree = $duree.' minutes, ';
+        $this->annee = $annee.')</em>';
         $this->pays = $pays;
         $this->genre = $genre;
         $this->realisateur = '<p>Realisateur : <a href="https://fr.wikipedia.org/wiki/'.$realisateurPrenom.'_'.$realisateurNom.'" target="blank">'.$realisateurPrenom.' '.$realisateurNom.'</a>';
@@ -39,9 +39,9 @@ class billets
         $this->acteur3 = '<a href="https://fr.wikipedia.org/wiki/'.$acteur[2][1].'_'.$acteur[2][0].'" target="blank">'.$acteur[2][1].'&nbsp'.$acteur[2][0].', </a>';
         $this->acteur4 = '<a href="https://fr.wikipedia.org/wiki/'.$acteur[3][1].'_'.$acteur[3][0].'" target="blank">'.$acteur[3][1].'&nbsp'.$acteur[3][0].', </a>';
         $this->acteur5 = '<a href="https://fr.wikipedia.org/wiki/'.$acteur[4][1].'_'.$acteur[4][0].'" target="blank">'.$acteur[4][1].'&nbsp'.$acteur[4][0].', </a>';
-        $this->resume = '<div id="resume"><p>Synopsis :</p>'.$resume.'</div></div>';
+        $this->resume = '<div id="resume"><p>Synopsis :</p><p>'.$resume.'</p></div><video controls src="'.$bandeAnnonce.'"></video></div></div>';
         $this->affiche = '<div id="affiche"><img src="'.$affiche.'" alt="'.$affiche.'">'.'</div>';
-        $this->bandeAnnonce = '<video controls src="'.$bandeAnnonce.'"></video></div>';
+        // $this->bandeAnnonce = '<video controls src="'.$bandeAnnonce.'"></video></div>';
         $this->divFin = '<div class="modal-footer">'.'<button onclick="modalTest()" type="button" class="btn btn-secondary" data-dismiss="modal" class="close">Fermer</button>'.'</div>'.'</div>'.'</div>'.'</div>';
 
         //
