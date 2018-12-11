@@ -12,7 +12,7 @@ class affiche
 
     public function __construct($selectAffiche)
     {
-        $this->containerStart = '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalFilm">';
+        $this->containerStart = '<button onclick="document.getElementById("modal").style.display="block">';
         $this->array = $selectAffiche;
         $this->containerEnd = '</button>';
     }

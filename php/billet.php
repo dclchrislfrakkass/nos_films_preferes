@@ -25,7 +25,7 @@ class billets
 
     public function __construct($nom, $duree, $annee, $affiche, $pays, $genre, $realisateurNom, $realisateurPrenom, $scenaristeNom, $scenaristePrenom, $acteur, $resume, $bandeAnnonce)
     {
-        $this->divDeb = '<div class="modal" id="modal" tabindex="-1" role="dialog">'.'<div class="modal-dialog" role="document">'.'<div class="modal-content">'.'<div class="modal-header">'.'<button type="button" class="close" data-dismiss="modal" aria-label="Close">'.'<span aria-hidden="true">&times;</span>'.'</button>'.'</div>'.'<div class="modal-body">';
+        $this->divDeb = '<div class="modalFilm" id="modalFilm" tabindex="-1" role="dialog">'.'<div class="modal-dialog" role="document">'.'<div class="modal-content">'.'<div class="modal-header">'.'<button type="button" data-dismiss="modal" aria-label="Close">'.'<span aria-hidden="true">&times;</span>'.'</button>'.'</div>'.'<div class="modal-body">';
         $this->divDeb = '<div class="billetFilm">';
         $this->nom = '<div class="infos">'.$nom.' (';
         $this->duree = $duree.'min, ';
@@ -42,7 +42,7 @@ class billets
         $this->resume = '<div id="resume"><p>Synopsie</p>'.$resume.'</div></div>';
         $this->affiche = '<div id="affiche"><img src="'.$affiche.'" alt="'.$affiche.'">'.'</div>';
         $this->bandeAnnonce = '<video controls src="'.$bandeAnnonce.'"></video></div>';
-        $this->divFin = '<div class="modal-footer">'.'<button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>'.'</div>'.'</div>'.'</div>'.'</div>';
+        $this->divFin = '<div class="modal-footer">'.'<button onclick="modalTest()" type="button" class="btn btn-secondary" data-dismiss="modal" class="close">Fermer</button>'.'</div>'.'</div>'.'</div>'.'</div>';
 
         //
         // $this->fermer = '<button type="button" class="close" aria-label="Close"'.'<span aria-hidden="true">&times;</span>'.'</button>'.'<script src="./js/close.js"></script>';

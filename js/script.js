@@ -8,20 +8,20 @@ rechercheInput.style.height = "100%";
 
 
 function test(){
-var gallery = document.getElementById('gallery');
-var moreInfos = gallery.getElementsByTagName('img');
-for (var inc = 0; inc < moreInfos.length; inc++) {
-	moreInfos[inc].addEventListener('click', function(img){
-		// console.log(img.target.src);
-		var httpRequest = new XMLHttpRequest();
-		httpRequest.onreadystatechange = function (argument) {
-			if (httpRequest.readyState === 4)
+	var gallery = document.getElementById('gallery');
+	var moreInfos = gallery.getElementsByTagName('img');
+	for (var inc = 0; inc < moreInfos.length; inc++) {
+		moreInfos[inc].addEventListener('click', function(img){
+			// console.log(img.target.src);
+			var httpRequest = new XMLHttpRequest();
+			httpRequest.onreadystatechange = function (argument) {
+				if (httpRequest.readyState === 4)
 				document.getElementById('main').innerHTML = httpRequest.responseText;
-		}
-		httpRequest.open('GET', './php/filmFull.php?affiche='+img.target.src+'', true);
-		httpRequest.send();
-	});
-}
+			}
+			httpRequest.open('GET', './php/filmFull.php?affiche='+img.target.src+'', true);
+			httpRequest.send();
+		});
+	}
 }
 
 // test();
@@ -50,23 +50,29 @@ rechercheSubmit.addEventListener('click', function(){
 
 var years = document.getElementById('annee');
 years.addEventListener("change", function(){
-var httpRequest = new XMLHttpRequest();
-httpRequest.onreadystatechange = function (argument) {
-	if (httpRequest.readyState === 4)
+	var httpRequest = new XMLHttpRequest();
+	httpRequest.onreadystatechange = function (argument) {
+		if (httpRequest.readyState === 4)
 		document.getElementById('gallery').innerHTML = httpRequest.responseText;
-}
-httpRequest.open('GET', './php/recherche.php?annee='+years.value+'', true);
-httpRequest.send();
-console.log('coucou');
+	}
+	httpRequest.open('GET', './php/recherche.php?annee='+years.value+'', true);
+	httpRequest.send();
+	console.log('coucou');
 });
 
 var gender = document.getElementById('genre');
 gender.addEventListener("change", function(){
-var httpRequest = new XMLHttpRequest();
-httpRequest.onreadystatechange = function (argument) {
-	if (httpRequest.readyState === 4)
+	var httpRequest = new XMLHttpRequest();
+	httpRequest.onreadystatechange = function (argument) {
+		if (httpRequest.readyState === 4)
 		document.getElementById('gallery').innerHTML = httpRequest.responseText;
-}
-httpRequest.open('GET', './php/recherche.php?genre='+gender.value+'', true);
-httpRequest.send();
+	}
+	httpRequest.open('GET', './php/recherche.php?genre='+gender.value+'', true);
+	httpRequest.send();
 });
+
+
+function modalTest(){
+	location.reload();
+	// console.log('test');
+};
