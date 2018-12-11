@@ -27,19 +27,19 @@ class billets
     {
         $this->divDeb = '<div class="modalFilm" id="modalFilm" tabindex="-1" role="dialog">'.'<div class="modal-dialog" role="document">'.'<div class="modal-content">'.'<div class="modal-header">'.'<button type="button" data-dismiss="modal" aria-label="Close">'.'<span aria-hidden="true">&times;</span>'.'</button>'.'</div>'.'<div class="modal-body">';
         $this->divDeb = '<div class="billetFilm">';
-        $this->nom = '<div class="infos">'.$nom.' (';
+        $this->nom = '<div class="infos"><h2>'.$nom.' </h2>(';
         $this->duree = $duree.'min, ';
         $this->annee = $annee.')';
         $this->pays = $pays;
         $this->genre = $genre;
-        $this->realisateur = '<p>Realisateur :</p><a href="https://fr.wikipedia.org/wiki/'.$realisateurPrenom.'_'.$realisateurNom.'" target="blank">'.$realisateurPrenom.' '.$realisateurNom.'</a>';
-        $this->scenariste = '<p>Scenariste :</p><a href="https://fr.wikipedia.org/wiki/'.$scenaristePrenom.'_'.$scenaristeNom.'" target="blank">'.$scenaristePrenom.' '.$scenaristeNom.'</a>';
-        $this->acteur1 = '<p>Acteurs:</p><a href="https://fr.wikipedia.org/wiki/'.$acteur[0][1].'_'.$acteur[0][0].'" target="blank">'.$acteur[0][1].'&nbsp'.$acteur[0][0].' </a>';
-        $this->acteur2 = '<a href="https://fr.wikipedia.org/wiki/'.$acteur[1][1].'_'.$acteur[1][0].'" target="blank">'.$acteur[1][1].'&nbsp'.$acteur[1][0].' </a>';
-        $this->acteur3 = '<a href="https://fr.wikipedia.org/wiki/'.$acteur[2][1].'_'.$acteur[2][0].'" target="blank">'.$acteur[2][1].'&nbsp'.$acteur[2][0].' </a>';
-        $this->acteur4 = '<a href="https://fr.wikipedia.org/wiki/'.$acteur[3][1].'_'.$acteur[3][0].'" target="blank">'.$acteur[3][1].'&nbsp'.$acteur[3][0].' </a>';
-        $this->acteur5 = '<a href="https://fr.wikipedia.org/wiki/'.$acteur[4][1].'_'.$acteur[4][0].'" target="blank">'.$acteur[4][1].'&nbsp'.$acteur[4][0].' </a>';
-        $this->resume = '<div id="resume"><p>Synopsie</p>'.$resume.'</div></div>';
+        $this->realisateur = '<p>Realisateur : <a href="https://fr.wikipedia.org/wiki/'.$realisateurPrenom.'_'.$realisateurNom.'" target="blank">'.$realisateurPrenom.' '.$realisateurNom.'</a>';
+        $this->scenariste = '<p>Scenariste : <a href="https://fr.wikipedia.org/wiki/'.$scenaristePrenom.'_'.$scenaristeNom.'" target="blank">'.$scenaristePrenom.' '.$scenaristeNom.'</a>';
+        $this->acteur1 = '<p>Acteurs : <a href="https://fr.wikipedia.org/wiki/'.$acteur[0][1].'_'.$acteur[0][0].'" target="blank">'.$acteur[0][1].'&nbsp'.$acteur[0][0].', </a>';
+        $this->acteur2 = '<a href="https://fr.wikipedia.org/wiki/'.$acteur[1][1].'_'.$acteur[1][0].'" target="blank">'.$acteur[1][1].'&nbsp'.$acteur[1][0].', </a>';
+        $this->acteur3 = '<a href="https://fr.wikipedia.org/wiki/'.$acteur[2][1].'_'.$acteur[2][0].'" target="blank">'.$acteur[2][1].'&nbsp'.$acteur[2][0].', </a>';
+        $this->acteur4 = '<a href="https://fr.wikipedia.org/wiki/'.$acteur[3][1].'_'.$acteur[3][0].'" target="blank">'.$acteur[3][1].'&nbsp'.$acteur[3][0].', </a>';
+        $this->acteur5 = '<a href="https://fr.wikipedia.org/wiki/'.$acteur[4][1].'_'.$acteur[4][0].'" target="blank">'.$acteur[4][1].'&nbsp'.$acteur[4][0].', </a>';
+        $this->resume = '<div id="resume"><p>Synopsis :</p>'.$resume.'</div></div>';
         $this->affiche = '<div id="affiche"><img src="'.$affiche.'" alt="'.$affiche.'">'.'</div>';
         $this->bandeAnnonce = '<video controls src="'.$bandeAnnonce.'"></video></div>';
         $this->divFin = '<div class="modal-footer">'.'<button onclick="modalTest()" type="button" class="btn btn-secondary" data-dismiss="modal" class="close">Fermer</button>'.'</div>'.'</div>'.'</div>'.'</div>';
