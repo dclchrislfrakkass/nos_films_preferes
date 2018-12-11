@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Mar 11 Décembre 2018 à 09:34
+-- Généré le :  Mar 11 Décembre 2018 à 11:42
 -- Version du serveur :  5.7.24-0ubuntu0.18.04.1
 -- Version de PHP :  7.2.10-0ubuntu0.18.04.1
 
@@ -384,8 +384,7 @@ INSERT INTO `genre` (`idGenre`, `nomGenre`) VALUES
 (11, 'historique'),
 (12, 'aventure'),
 (13, 'musical'),
-(14, 'fantastique'),
-(15, '');
+(14, 'fantastique');
 
 -- --------------------------------------------------------
 
@@ -1111,7 +1110,14 @@ INSERT INTO `personne` (`idPersonne`, `nomPersonne`, `prenomPersonne_personne`, 
 (905, '', '', 22),
 (906, '', '', 22),
 (907, '', '', 22),
-(908, '', '', 22);
+(908, '', '', 22),
+(909, '', '', 22),
+(910, '', '', 22),
+(911, '', '', 22),
+(912, '', '', 22),
+(913, '', '', 22),
+(914, '', '', 22),
+(915, '', '', 22);
 
 -- --------------------------------------------------------
 
@@ -1394,7 +1400,7 @@ ALTER TABLE `Pays`
 -- AUTO_INCREMENT pour la table `personne`
 --
 ALTER TABLE `personne`
-  MODIFY `idPersonne` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=909;
+  MODIFY `idPersonne` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=916;
 --
 -- AUTO_INCREMENT pour la table `Utilisateur`
 --
